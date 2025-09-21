@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacity Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/futura" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='animation.gif.gif') }}" alt="Background GIF" class="background-gif">
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Image Capacity Results
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="encode-decode-container">
+            <h1 style="font-family: 'Pacifico', cursive; color: #4b0082;">Capacity Results</h1>
+            
+            <div class="result">
+                <h2 style="font-family: 'Futura', sans-serif;">Image Information:</h2>
+                <p><strong>Dimensions:</strong> {{ capacity.width }} × {{ capacity.height }} pixels</p>
+                <p><strong>Total Pixels:</strong> {{ "{:,}".format(capacity.pixels) }}</p>
+                
+                <h2 style="font-family: 'Futura', sans-serif;">Maximum Hidden Message Capacity:</h2>
+                <p><strong>Bits Available:</strong> {{ "{:,}".format(capacity.max_bits) }}</p>
+                <p><strong>Bytes Available:</strong> {{ "{:,}".format(capacity.max_bytes) }}</p>
+                <p><strong>Characters (ASCII):</strong> {{ "{:,}".format(capacity.max_chars) }}</p>
+                
+                <div class="note" style="font-family: 'Futura', sans-serif;">
+                    <p>Note: This is the theoretical maximum. In practice, you may want to use fewer characters to ensure reliability.</p>
+                </div>
+            </div>
+            
+            <a href="/capacity" class="btn-home">Check Another Image</a>
+            <a href="/" class="btn-home">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

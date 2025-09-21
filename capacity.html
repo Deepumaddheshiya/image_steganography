@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Capacity Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.cdnfonts.com/css/futura" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='animation.gif.gif') }}" alt="Background GIF" class="background-gif">
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Image Capacity Calculator
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="encode-decode-container">
+            <h1 style="font-family: 'Pacifico', cursive; color: #4b0082;">Check Image Capacity</h1>
+            <p style="font-family: 'Futura', sans-serif;">Upload an image to see how much data it can hide:</p>
+            
+            <form action="/calculate_capacity" method="POST" enctype="multipart/form-data">
+                <label class="upload-label">
+                    <span>Choose Image</span>
+                    <input type="file" name="image" accept=".png,.jpg,.jpeg,.bmp" required>
+                </label>
+                <button type="submit" class="btn-encode">Calculate Capacity</button>
+            </form>
+            
+            <a href="/" class="btn-home">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

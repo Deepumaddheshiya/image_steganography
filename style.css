@@ -1,0 +1,245 @@
+/* General Styles */
+body {
+    font-family: 'Futura', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* Ensure the GIF is positioned correctly */
+}
+body {
+    font-family: 'Futura', 'sans-serif';
+}
+
+h1 {
+    font-family: 'Pacifico', 'cursive';
+}
+
+
+/* Background GIF */
+.background-gif {
+    position: absolute; /* Position the GIF absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire width */
+    height: 100%; /* Cover the entire height */
+    object-fit: cover; /* Ensure the GIF covers the entire background */
+    z-index: -1; /* Place the GIF behind other content */
+}
+
+/* Marquee Container */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(51, 51, 51, 0.8), rgba(0, 0, 0, 0.8)); /* Semi-transparent gradient */
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure the marquee is above the GIF */
+}
+
+.marquee-text {
+    display: inline-block;
+    font-size: 72px; /* Increased font size */
+    font-weight: 700;
+    color: white;
+    animation: marquee 10s linear infinite, rainbow 5s infinite; /* Increased animation speed */
+    padding-left: 100%; /* Start off-screen */
+    font-family: 'Futura', sans-serif; /* Futura font */
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Rainbow Color Animation */
+@keyframes rainbow {
+    0% { color: #ff7e5f; }
+    20% { color: #feb47b; }
+    40% { color: #ffcc70; }
+    60% { color: #45b6fe; }
+    80% { color: #6a82fb; }
+    100% { color: #ff7e5f; }
+}
+
+/* Hover Effect */
+.marquee-text:hover {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+/* Main Container */
+.container {
+    background: transparent; /* Remove white background */
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px; /* Increased width */
+    text-align: center;
+    margin-top: 140px; /* Increased space for the marquee */
+    z-index: 1; /* Ensure the container is above the GIF */
+}
+
+/* Buttons */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap between buttons */
+}
+
+.btn {
+    background-color: #ff7f50; /* Default orange color */
+    color: black; /* Constant black font color */
+    border: none;
+    padding: 30px 60px; /* Increased button size */
+    border-radius: 10px; /* Slightly rounded corners */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px; /* Increased font size */
+    font-weight: 400;
+    font-family: 'Pacifico', 'cursive' !important; /* Use Pacifico font */
+    transition: background-color 0.5s ease, transform 0.3s ease;
+    animation: tab-color-change 6s infinite; /* Dynamic color change */
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Dynamic Tab Color Animation */
+@keyframes tab-color-change {
+    0% { background-color: #ff7f50; } /* Orange */
+    33% { background-color: #800000; } /* Maroon */
+    66% { background-color: #4b0082; } /* Indigo */
+    100% { background-color: #ff7f50; } /* Orange */
+}
+
+/* Breathe Animation */
+@keyframes breathe {
+    0%, 100% {
+        font-weight: 100;
+    }
+    50% {
+        font-weight: 900;
+    }
+}
+
+.breathe-animation {
+    animation: breathe 3s infinite;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+/* Encode/Decode Page Container */
+.encode-decode-container {
+    max-width: 600px; /* Wider container */
+    width: 90%; /* Responsive width */
+    margin: 20px auto; /* Center the container */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Upload Section */
+.upload-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-label {
+    display: inline-block;
+    background-color: #ff7f50; /* Orange color */
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-label:hover {
+    background-color: #ff6f40; /* Darker orange on hover */
+}
+
+.upload-label span {
+    font-family: 'Pacifico', cursive;
+    font-size: 18px;
+}
+
+.upload-label input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+/* Image Preview */
+.preview-container {
+    margin-top: 15px;
+    display: none; /* Hidden by default */
+    text-align: center; /* Center the image */
+}
+
+#preview {
+    max-width: 200px; /* Smaller width */
+    max-height: 200px; /* Smaller height */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Ensure the image fits within the dimensions */
+}
+
+/* Textarea for Secret Message */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ff7f50;
+    font-family: 'Futura', sans-serif;
+    font-size: 16px;
+    resize: none; /* Disable resizing */
+    margin-bottom: 15px;
+}
+
+/* Encode/Decode Buttons */
+.btn-encode, .btn-decode {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Go to Home Button */
+.btn-home {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    background-color: #4b0082; /* Indigo color */
+    color: white;
+}
+
+.btn-home:hover {
+    background-color: #5a1a8a; /* Darker indigo on hover */
+}
+
+/* Result Container */
+.result {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Futura', sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}

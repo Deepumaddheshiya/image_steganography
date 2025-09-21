@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode Message</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add Futura Font -->
+    <link href="https://fonts.cdnfonts.com/css/futura" rel="stylesheet">
+    <!-- Add Pacifico Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Add GIF as background -->
+    <img src="{{ url_for('static', filename='animation.gif.gif') }}" alt="Background GIF" class="background-gif">
+
+    <!-- Main Content -->
+    <div class="container encode-decode-container">
+        <h1>Decode Message</h1>
+        <form action="/decode_message" method="post" enctype="multipart/form-data">
+            <div class="upload-section">
+                <label for="image-upload" class="upload-label">
+                    <span>Upload Image</span>
+                    <input type="file" id="image-upload" name="image" accept="image/*" required onchange="previewImage(event)">
+                </label>
+                <!-- Image Preview -->
+                <div id="image-preview" class="preview-container">
+                    <img id="preview" src="#" alt="Preview">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-decode breathe-animation">Decode</button>
+        </form>
+        <a href="/" class="btn btn-home">Go to Home</a>
+    </div>
+
+    <!-- Script for Image Preview -->
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById('preview');
+            const previewContainer = document.getElementById('image-preview');
+            const file = event.target.files[0];
+            if (file) {
+                previewContainer.style.display = 'block';
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

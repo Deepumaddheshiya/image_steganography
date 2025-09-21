@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steganography Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Add Futura Font -->
+    <link href="https://fonts.cdnfonts.com/css/futura" rel="stylesheet">
+    <!-- Add Pacifico Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Add GIF as background -->
+    <img src="{{ url_for('static', filename='animation_gif.gif') }}" alt="Background GIF" class="background-gif">
+    
+    <!-- Marquee Container -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Welcome to Steganography Tool Project
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Encode, Decode, and Capacity Tabs -->
+        <div class="options">
+            <a href="encode.html" class="btn breathe-animation">Encode Message</a>
+            <a href="decode.html" class="btn breathe-animation">Decode Message</a>
+            <a href="capacity.html" class="btn breathe-animation">Check Capacity</a>
+        </div>
+    </div>
+</body>
+</html>
